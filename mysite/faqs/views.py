@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.http import JsonResponse
 
 # Create your views here.
 def index(request, question_id):
@@ -12,4 +13,4 @@ def index(request, question_id):
 		6:"Yes, the whole learning process will be online.",
 		7:"As of now, you can start learning any spoken language that you want. I.e. Japanese, French, Spanish, etc"
 	}
-	return HttpResponse(switcher.get(question_id, "Invalid month"))
+	return JsonResponse(switcher.get(question_id, "Invalid month"), safe=False)
